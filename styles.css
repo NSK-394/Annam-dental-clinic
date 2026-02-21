@@ -1467,3 +1467,132 @@ ul {
     padding: 11px 20px;
   }
 }
+
+/* ------------------ PATIENT EDUCATION SECTION ------------------ */
+.education-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.education-image {
+  background: white;
+  padding: 15px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+
+.education-image:hover {
+  transform: rotate(0deg);
+}
+
+.poster-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  display: block;
+}
+
+.education-list {
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.education-list li {
+  margin-bottom: 12px;
+  position: relative;
+  list-style: none;
+}
+
+.education-list li::before {
+  content: "✓";
+  color: var(--color-primary);
+  font-weight: bold;
+  position: absolute;
+  left: -25px;
+}
+
+@media (max-width: 768px) {
+  .education-layout {
+    gap: 30px;
+    grid-template-columns: 1fr;
+  }
+
+  .education-image {
+    transform: none;
+  }
+}
+/* ------------------ SERVICES PAGE BANNER ------------------ */
+.services-intro {
+  margin-bottom: 48px;
+  align-items: flex-start;
+}
+
+.services-banner-container {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+}
+
+.services-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ------------------ CONTACT PAGE SIGNAGE ------------------ */
+.contact-signage-container {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+}
+
+.contact-signage-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ------------------ OUR LOCATION SECTION ------------------ */
+.location-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.location-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+}
+
+.signage-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  max-height: 500px;
+}
+
+@media (max-width: 768px) {
+  .location-layout {
+    gap: 32px;
+    grid-template-columns: 1fr;
+  }
+  
+  .signage-img {
+    max-height: 400px;
+  }
+  
+  .services-intro {
+    flex-direction: column;
+    gap: 24px;
+  }
+}

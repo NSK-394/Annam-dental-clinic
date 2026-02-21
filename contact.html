@@ -156,44 +156,55 @@
                             </div>
                         </div>
 
-                        <!-- RIGHT: Contact Form -->
-                        <div>
-                            <div class="form-card">
-                                <h3 class="form-card__heading">Send Us a Message</h3>
-                                <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
-                                    novalidate>
-                                    <div class="form__group">
-                                        <label class="form__label" for="fieldName">Full Name <span
-                                                style="color:var(--color-error)">*</span></label>
-                                        <input class="form__input" type="text" id="fieldName" name="name" required
-                                            placeholder="Your full name" autocomplete="name" />
-                                    </div>
-                                    <div class="form__group">
-                                        <label class="form__label" for="fieldPhone">Phone Number <span
-                                                style="color:var(--color-error)">*</span></label>
-                                        <input class="form__input" type="tel" id="fieldPhone" name="phone" required
-                                            placeholder="Your mobile number" autocomplete="tel" />
-                                    </div>
-                                    <div class="form__group">
-                                        <label class="form__label" for="fieldMessage">Message <span
-                                                style="color:var(--color-error)">*</span></label>
-                                        <textarea class="form__textarea" id="fieldMessage" name="message" required
-                                            rows="5" placeholder="How can we help you?"></textarea>
-                                    </div>
-                                    <!-- Hidden anti-spam honeypot for Formspree -->
-                                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" />
-                                    <button type="submit" class="btn btn--primary form__submit" id="contact-submit-btn">
-                                        Send Message
-                                    </button>
-                                    <p class="form__success" id="formSuccess" role="status" aria-live="polite">
-                                        ✅ Thank you! We'll be in touch soon.
-                                    </p>
-                                </form>
-                            </div>
+                        <!-- Clinic Signage Image -->
+                        <div class="contact-signage-container" style="margin-top: 32px;">
+                            <img src="assets/images/clinic-signage-night.jpg" alt="Annam Dental Clinic Night Signage"
+                                class="contact-signage-img">
+                            <p
+                                style="font-size: 13px; color: var(--color-text-mid); margin-top: 12px; font-style: italic;">
+                                Look for our glowing signage to find us easily!
+                            </p>
                         </div>
-
                     </div>
                 </div>
+
+                <!-- RIGHT: Contact Form -->
+                <div>
+                    <div class="form-card">
+                        <h3 class="form-card__heading">Send Us a Message</h3>
+                        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+                            <div class="form__group">
+                                <label class="form__label" for="fieldName">Full Name <span
+                                        style="color:var(--color-error)">*</span></label>
+                                <input class="form__input" type="text" id="fieldName" name="name" required
+                                    placeholder="Your full name" autocomplete="name" />
+                            </div>
+                            <div class="form__group">
+                                <label class="form__label" for="fieldPhone">Phone Number <span
+                                        style="color:var(--color-error)">*</span></label>
+                                <input class="form__input" type="tel" id="fieldPhone" name="phone" required
+                                    placeholder="Your mobile number" autocomplete="tel" />
+                            </div>
+                            <div class="form__group">
+                                <label class="form__label" for="fieldMessage">Message <span
+                                        style="color:var(--color-error)">*</span></label>
+                                <textarea class="form__textarea" id="fieldMessage" name="message" required rows="5"
+                                    placeholder="How can we help you?"></textarea>
+                            </div>
+                            <!-- Hidden anti-spam honeypot for Formspree -->
+                            <input type="text" name="_gotcha" style="display:none" tabindex="-1" />
+                            <button type="submit" class="btn btn--primary form__submit" id="contact-submit-btn">
+                                Send Message
+                            </button>
+                            <p class="form__success" id="formSuccess" role="status" aria-live="polite">
+                                ✅ Thank you! We'll be in touch soon.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
     <!-- ══════════════════ GOOGLE MAPS ══════════════════ -->
