@@ -1505,6 +1505,26 @@ ul {
   height: auto;
   border-radius: var(--radius-sm);
   display: block;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease;
+}
+
+.poster-img:hover {
+  transform: scale(1.02);
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .education-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
 .education-list {
