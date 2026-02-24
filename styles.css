@@ -199,8 +199,19 @@ ul {
   font-family: var(--font-display);
   font-size: 20px;
   color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   letter-spacing: -0.3px;
   white-space: nowrap;
+}
+
+.navbar__logo {
+  height: 40px;
+  width: auto;
+  border-radius: 4px;
 }
 
 .navbar__links {
@@ -1525,6 +1536,7 @@ ul {
     transform: none;
   }
 }
+
 /* ------------------ SERVICES PAGE BANNER ------------------ */
 .services-intro {
   margin-bottom: 48px;
@@ -1556,6 +1568,10 @@ ul {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
+  object-position: center 20%;
+  max-height: 400px;
+  /* Limit height and use cover to maintain focus */
 }
 
 /* ------------------ OUR LOCATION SECTION ------------------ */
@@ -1577,6 +1593,7 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
   display: block;
   max-height: 500px;
 }
@@ -1586,11 +1603,11 @@ ul {
     gap: 32px;
     grid-template-columns: 1fr;
   }
-  
+
   .signage-img {
     max-height: 400px;
   }
-  
+
   .services-intro {
     flex-direction: column;
     gap: 24px;
