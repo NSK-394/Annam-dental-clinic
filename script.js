@@ -7,7 +7,7 @@
   'use strict';
 
   /* ── Hamburger Menu ─────────────────────────────────────── */
-  const hamburger  = document.getElementById('hamburger');
+  const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
 
   if (hamburger && mobileMenu) {
@@ -42,8 +42,8 @@
   });
 
   /* ── Contact Form Validation ────────────────────────────── */
-  const contactForm   = document.getElementById('contactForm');
-  const successMsg    = document.getElementById('formSuccess');
+  const contactForm = document.getElementById('contactForm');
+  const successMsg = document.getElementById('formSuccess');
 
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
@@ -53,8 +53,8 @@
       }
       e.preventDefault();
 
-      const name    = document.getElementById('fieldName');
-      const phone   = document.getElementById('fieldPhone');
+      const name = document.getElementById('fieldName');
+      const phone = document.getElementById('fieldPhone');
       const message = document.getElementById('fieldMessage');
       let valid = true;
 
@@ -106,6 +106,84 @@
         contactForm.submit();
       });
     });
+  }
+
+  /* ── Animated Star Ratings — IntersectionObserver ───────── */
+  const starGroups = document.querySelectorAll('.stars');
+  if (starGroups.length > 0 && 'IntersectionObserver' in window) {
+    const starObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          starObserver.unobserve(entry.target); // animate once only
+        }
+      });
+    }, { threshold: 0.5 });
+
+    starGroups.forEach(function (group) {
+      starObserver.observe(group);
+    });
+  } else {
+    // Fallback: animate immediately if observer not supported
+    starGroups.forEach(function (group) {
+      group.classList.add('animate');
+    });
+  }
+
+  /* ── Testimonials Carousel ───────────────────────────────── */
+  const carousel = document.getElementById('testimonialsCarousel');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+  const dots = document.querySelectorAll('.testimonials-dot');
+  const cards = carousel ? carousel.querySelectorAll('.testimonial-card') : [];
+
+  if (carousel && cards.length > 0) {
+    var currentIndex = 0;
+
+    function getCardWidth() {
+      return cards[0].offsetWidth + 24; // card width + gap
+    }
+
+    function scrollToCard(index) {
+      if (index < 0) index = 0;
+      if (index >= cards.length) index = cards.length - 1;
+      currentIndex = index;
+      carousel.scrollTo({ left: getCardWidth() * index, behavior: 'smooth' });
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        scrollToCard(currentIndex - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        scrollToCard(currentIndex + 1);
+      });
+    }
+
+    // Dot click navigation
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        scrollToCard(parseInt(dot.getAttribute('data-index'), 10));
+      });
+    });
+
+    // Sync dots with scroll position (covers swipe on mobile)
+    carousel.addEventListener('scroll', function () {
+      var scrollLeft = carousel.scrollLeft;
+      var idx = Math.round(scrollLeft / getCardWidth());
+      if (idx !== currentIndex) {
+        currentIndex = idx;
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('active', i === currentIndex);
+        });
+      }
+    }, { passive: true });
   }
 
 })();
